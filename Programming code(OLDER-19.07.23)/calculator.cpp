@@ -1,29 +1,10 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 int main()
 {
- long long int A,B;
- char S='+'||'-' || '*' || '/';
- cin>>A>>S>>B;
-
-    while(S=='+')
-    {
-    cout<<A+B<<endl;
-    return 0;
-    }
-    while(S=='-')
-    {
-        cout<<A-B<<endl;
-        return 0;
-    }
-    while(S=='*')
-    {
-        cout<<A*B<<endl;
-        return 0;
-    }
-    while(S=='/')
-    {
-        cout<<A/B<<endl;
-        return 0;
-    }
+    long long int X, Y;
+	cin >> X >> Y;
+	cout << X << " + " << Y << " = " << X + Y << endl;
+	cout << X << " * " << Y << " = " << X*Y << endl;
+	cout << X << " - " << Y << " = " << X - Y << endl;
 }
