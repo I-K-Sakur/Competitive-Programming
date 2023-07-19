@@ -1,0 +1,30 @@
+//Problem Link:
+//https://codeforces.com/contest/677/problem/A
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,h,a,co=0;
+    cin>>n>>h;
+
+    vector<int>vex;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a;
+        vex.push_back(a);
+        
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(vex[i]>h)
+        {
+           co=co+2;
+           //cout<<co;
+        }
+        else{
+         co=co+1;
+         //cout<<co;
+        }
+    }
+    cout<<co<<endl;
+}
