@@ -1,3 +1,29 @@
+//IsPowerOFTwo using bitwise
+#include <bits/stdc++.h>
+using namespace std;
+bool ispoweroftwo(int x)
+{
+  //x will checkif x==0 
+  //and !(x&(x-1)) will check 
+  //if x is a power of 2 or not
+  return (x && !(x & (x-1)));
+}
+int main()
+{
+  int c=15;
+   bitset<8>b(001100);
+   if(ispoweroftwo(c))
+   {
+    cout<<"True"<<endl;
+   }
+   else{
+    cout<<"False"<<endl;
+   }
+  
+
+ }
+
+
 //bitwise all possible subset
 #include <bits/stdc++.h>
 using namespace std;
