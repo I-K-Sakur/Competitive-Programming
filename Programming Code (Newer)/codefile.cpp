@@ -23,7 +23,8 @@ int main()
 
  }
 
-
+------------------------------------------------------------------------
+------------------------------------------------------------------------
 //bitwise all possible subset
 #include <bits/stdc++.h>
 using namespace std;
@@ -67,3 +68,43 @@ int main()
   
 
  }
+-------------------------------------------------------
+------------------------------------------------------
+#Sieve using bitset
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bitset<1000> b;
+vector<int> primes;
+
+// prime sieve using bitset
+void sieve(long long upper_bound)
+{
+    b.set(); // setting all values to 1
+    b[0] = b[1] = 0;//initial primes
+    primes.push_back(2);//2 is prime we know
+
+    for (int i = 3; i <= upper_bound + 1; i += 2)
+    {
+        if (b[i])
+        {
+            primes.push_back(i);
+            for (int j = i * i; j <= upper_bound + 1; j += i)
+            {
+                b[j] = 0;
+            }
+        }
+    }
+}
+
+int main()
+{
+    sieve(1000);
+    for (int i = 0; i < primes.size(); i++)
+    {
+        cout << primes[i] << " ";
+    }
+
+    return 0;
+}
