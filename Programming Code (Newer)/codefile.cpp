@@ -35,6 +35,9 @@ void possiblesubset(char arr[],int x)
    //outer loop that iterates upto 2^x
    //1<<N == 2^x
    //cause the number of subset is 2^x
+  //(1 << i): This part involves left-shifting the binary representation of the number 1 by i positions.
+  //In other words, it sets the i-th bit to 1 and leaves all other bits as 0.
+  //For example, if i is 2, (1 << 2) results in binary 100
    for(int i=0;i<(1<<x);++i)
    {
     //inner loop that iterates over each bit of the current value of i
