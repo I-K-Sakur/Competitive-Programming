@@ -142,3 +142,32 @@ int main()
     cout<<gcd(a,b)<<endl;
     cout<<lcm(a,b)<<endl;
 }
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+
+  //GCD LCM using vector and other 
+
+  #include <bits/stdc++.h>
+using namespace std;
+//gcd and LCM using array vector etc..
+//for many values
+
+
+int main()
+{
+    int n,a;
+    cin>>n;
+    vector<int>v;
+    for(int i=0;i<n;i++)
+    {
+      cin>>a;
+      v.push_back(a);
+    }
+    int x=__gcd(v[0],v[1]);
+    for(int i=2;i<n;i++)
+    {
+        x=__gcd(x,v[i]);
+    }
+    cout<<x<<endl;
+}
