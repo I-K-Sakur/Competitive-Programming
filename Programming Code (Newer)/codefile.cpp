@@ -171,3 +171,32 @@ int main()
     }
     cout<<x<<endl;
 }
+--------------------------------------------------
+---------------------------------------------------
+  //LCM using vector and other
+  
+  #include <bits/stdc++.h>
+using namespace std;
+
+int lcm(int a, int b) {
+    return (a * b) / __gcd(a, b);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    
+    int x = v[0];
+    for (int i = 1; i < n; i++) {
+        x = lcm(x, v[i]);
+    }
+    
+    cout << "LCM: " << x << endl;
+    
+    return 0;
+}
