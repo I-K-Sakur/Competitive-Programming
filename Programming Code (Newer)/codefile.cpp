@@ -200,3 +200,103 @@ int main() {
     
     return 0;
 }
+
+------------------------------------------------------
+-------------------------------------------------------
+//The GCD of pair 
+  #include <bits/stdc++.h>
+using namespace std;
+//maximum gcd among pairs
+
+
+int main()
+{
+  long long int n,a,i,b,mx=1e6+7;
+  cin>>n;
+  vector<int>v(n),cnt(mx),ans(mx);
+// 6
+// 2 4 6 8 10 12
+// Here, 6 is the number of elements, and the elements are 2 4 6 8 10 12.
+  for(int i=0;i<n;i++)
+  {
+    cin>>v[i];
+  }
+//   cnt[2] = 1
+// cnt[4] = 1
+// cnt[6] = 1
+// cnt[8] = 1
+// cnt[10] = 1
+// cnt[12] = 1
+// Then, it iterates from 2 to mx (here mx = 1e6 + 7), which is 1,000,007.
+
+// For each number i from 2 to mx, it iterates over multiples of i up to mx. For example, when i = 2, it iterates over j = 2, 4, 6, 8, ....
+
+// For each j, it adds the count of elements at index j to ans[i].
+
+// If ans[i] is greater than 1, it updates x to i. This x will store the maximum GCD among pairs of elements.
+
+// Let's see the count of multiples of each number:
+
+// For i = 2:
+
+// ans[2] will be cnt[2] = 1.
+// No multiple of 2 has a count greater than 1.
+// For i = 3:
+
+// ans[3] will be cnt[3] = 0.
+// No multiple of 3 has a count greater than 1.
+// For i = 4:
+
+// ans[4] will be cnt[4] = 1.
+// No multiple of 4 has a count greater than 1.
+// For i = 5:
+
+// ans[5] will be cnt[5] = 0.
+// No multiple of 5 has a count greater than 1.
+// For i = 6:
+
+// ans[6] will be cnt[6] = 1.
+// No multiple of 6 has a count greater than 1.
+// For i = 7:
+
+// ans[7] will be cnt[7] = 0.
+// No multiple of 7 has a count greater than 1.
+// For i = 8:
+
+// ans[8] will be cnt[8] = 1.
+// No multiple of 8 has a count greater than 1.
+// For i = 9:
+
+// ans[9] will be cnt[9] = 0.
+// No multiple of 9 has a count greater than 1.
+// For i = 10:
+
+// ans[10] will be cnt[10] = 1.
+// No multiple of 10 has a count greater than 1.
+// For i = 11:
+
+// ans[11] will be cnt[11] = 0.
+// No multiple of 11 has a count greater than 1.
+// For i = 12:
+
+// ans[12] will be cnt[12] = 1.
+// No multiple of 12 has a count greater than 1.
+  for(int i=0;i<n;i++) cnt[v[i]]++; //if the cector is (20,20,20,30,40..) then v[20]=3,v[30]=1,v[40]=1
+
+  int x=1;
+  for(int i=2;i<=mx;i++)
+  {
+    ans[i]=0;
+    for(int j=i;j<=mx;j+=i)
+    {
+      ans[i]+=cnt[j];
+      if(ans[i]>i)
+      {
+        x=i;
+      }
+    }
+  }
+  //finally it prints the max gcd
+  cout<<x<<endl;
+
+}
