@@ -300,3 +300,28 @@ int main()
   cout<<x<<endl;
 
 }
+-----------------------------------------------------------------
+----------------------------------------------------------------
+//NUMBER OF DIVISORS FOR ANY GIVEN NUMBER
+  
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int n, cnt = 0;
+    cin >> n;
+    
+    // Loop up to sqrt(n)
+    for(int i = 1; i*i <= n; i++) {
+        if(n % i == 0) {
+            // If i divides n, increment count
+            if(n / i == i) {
+                cnt++;
+            } else {
+                // Increment count for both i and n/i
+                cnt += 2;
+            }
+        }
+    }
+    cout << cnt << endl;
+    return 0;
+}
