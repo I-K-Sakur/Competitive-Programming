@@ -325,3 +325,44 @@ int main() {
     cout << cnt << endl;
     return 0;
 }
+
+------------------------------------------------------
+  -----------------------------------------------------
+//PRIME FACTORIZATION
+  #include<bits/stdc++.h>
+using namespace std;
+
+// PRIME FACTORIZATION 
+
+int main() {
+    long long int n;
+    cin >> n;
+  //USING MAP
+    map<long long, long long> mp;
+    //CHECKING ALL VALUES THAT ARE DIVISIBLE BY 2
+    while (n % 2 == 0) {
+        mp[2]++;
+        n /= 2;
+    }
+
+  //DIVISIBLE BY 3 AND THEIR MULTIPLES 
+  //JUST LIKE PRIME VALUES
+    for (int i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            mp[i]++;
+            n /= i;
+        }
+    }
+    // if (n > 1) { mp[n]++; }: This condition checks if the remaining n after the loop is greater than 1, 
+    //   which means it is a prime number itself. In that case, it increments the count of n in the map mp.
+    if (n > 1) {
+        mp[n]++;
+    }
+//CHECKING ALL THE VALUES USING AUTO
+    for (auto it : mp) {
+        cout << it.first << "^" << it.second << endl;
+    }
+
+    return 0;
+}
+
