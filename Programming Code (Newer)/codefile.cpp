@@ -375,7 +375,7 @@ using namespace std;
 //NOD FORMULA: FIND THE PRIME FACTORIZATION AND THEN
 //ADD 1 WITH THE POWER OF PRIME FACTORIZATION
 int main() {
-    long long int n;
+    long long int n,cnt=0;
     cin >> n;
     map<long long, long long> mp;
     
@@ -396,9 +396,52 @@ int main() {
     }
 
     for (auto it : mp) {
+      cnt*=it.second+1;
         cout << it.first << "^" << it.second+1 << endl;
     }
 
+    return 0;
+}
+ 
+--------------------------------------------------------
+  ------------------------------------------------------
+  //NUMBER OF ODD DIVISORS
+  #include<bits/stdc++.h>
+using namespace std;
+
+//NUMBER OF ODD DIVISOR(NOD) FROM PRIME FACTORIZATION
+
+int main() {
+    long long int n;
+    cin >> n;
+    int cnt=1;
+    map<long long, long long> mp;
+    
+    while (n % 2 == 0) {
+        mp[2]++;
+        n /= 2;
+    }
+    
+    for (int i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            mp[i]++;
+            n /= i;
+        }
+    }
+
+    if (n > 1) {
+        mp[n]++;
+    }
+    
+    for (auto it : mp) {
+        if(it.first%2!=0)
+        {
+            //adding add to get the number of divisors
+            cnt*=it.second+1;
+        cout << it.first << "^" << it.second+1 << endl;
+        }
+    }
+  cout<<cnt<<endl;
     return 0;
 }
  
