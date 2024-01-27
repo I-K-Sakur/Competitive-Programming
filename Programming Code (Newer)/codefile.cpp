@@ -366,3 +366,39 @@ int main() {
     return 0;
 }
 
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+//NUMBER OF DIVISOR(NOD) FROM PRIME FACTORIZATION
+//NOD FORMULA: FIND THE PRIME FACTORIZATION AND THEN
+//ADD 1 WITH THE POWER OF PRIME FACTORIZATION
+int main() {
+    long long int n;
+    cin >> n;
+    map<long long, long long> mp;
+    
+    while (n % 2 == 0) {
+        mp[2]++;
+        n /= 2;
+    }
+    
+    for (int i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            mp[i]++;
+            n /= i;
+        }
+    }
+
+    if (n > 1) {
+        mp[n]++;
+    }
+
+    for (auto it : mp) {
+        cout << it.first << "^" << it.second+1 << endl;
+    }
+
+    return 0;
+}
+ 
