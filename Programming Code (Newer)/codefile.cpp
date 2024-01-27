@@ -444,4 +444,47 @@ int main() {
   cout<<cnt<<endl;
     return 0;
 }
- 
+--------------------------------------------------------
+  ----------------------------------------------------
+  //GIVEN VALUES AND TARGET SUM 
+  //FIND HOW MANY WAYS YOU CAN MAKE TARGET SUM USING THOSE VALUES
+  #include<bits/stdc++.h>
+using namespace std;
+///TARGET SUM.
+//GIVEN SOME NUMBERS AND WE NEED TO FIND 
+//A GIVEN TARGET SUM HOW MANY WAY WE CAN 
+//MAKE THAT TARGET SUM USING THOSE NUMBERS
+int main() {
+    int n, tar, x;
+    cin >> n >> tar; // Corrected variable name from a to n
+
+    vector<int> v;
+    for(int i = 0; i < n; i++) {
+        cin >> x;
+        v.push_back(x);
+    }
+
+    // Iterating through all possible subsets using bitmasking
+    for(int i = 0; i < (1 << v.size()); i++) {
+        int sum = 0;
+        for(int j = 0; j < v.size(); j++) {
+            if(i & (1 << j)) {
+                sum += v[j];
+                //do calculate with bitwise suppose the number i=3 the bit is 0011
+                //and if jth value is j=1 0001 and j=2 ,0010 then multiplying them would be 
+                //1 in both 0011*0001 ,0011*0010 will give 1 as value 
+                //so we will get summ of two values like 4+5=9
+            }
+        }
+        // Outputting subset elements and their sum
+        for(int k = 0; k < v.size(); k++) {
+            if(i & (1 << k)) {
+                cout << v[k] << " ";
+            }
+        }
+        cout << "sum " << sum << endl; // Outputting sum
+    }
+
+    return 0;
+}
+
