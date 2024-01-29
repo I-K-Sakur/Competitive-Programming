@@ -487,4 +487,47 @@ int main() {
 
     return 0;
 }
+-------------------------------------------------------------------
+  --------------------------------------------------------------------
+  //The code is to calculate the sum of integers from 1 up to a very large number (10^15)
+  //that are divisible by any combination of numbers in a given vector.
+  #include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int n,a,b,tar,x;
+  cin>>n>>tar;
+  vector<int>vex;
+  for(int i=0;i<n;i++)
+  {
+    cin>>a;
+    vex.push_back(a);
+  }
+    int siz=vex.size();
+    int subsize=pow(2,siz);
+    int ans=0;
+    for(int i=0;i<subsize;i++)
+    {
+        bitset<3>b=i;
+        int product=1,cnt=0,div=0;
+       for(int j=0;j<siz;j++)
+       {
+         int f= i & (1<<j);
+         if(f)
+         {
+            cnt++;
+            product*=vex[j];
+         }
+       }
+       if(cnt==0) continue;
+       div=tar/product;
+       if(cnt%2==1) ans+=div;
+       else ans-=div;
+       cout<<b<<" "<<product<<" "<<div<<" "<<ans<<endl;
+    }
+    cout<<"Main Answer "<<ans<<endl;
+}
+  
+    
 
