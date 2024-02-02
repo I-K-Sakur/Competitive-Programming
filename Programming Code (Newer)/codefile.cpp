@@ -534,7 +534,11 @@ int main()
 ---------------------------------------------------------------------------------------
 /* 
   SubString of a string.
-  Given two string s,s1. Need to find out if the s1 is substring of s
+  Given two string s,s1. Need to find out if the s1 is substring of s.
+
+  
+A substring is a contiguous sequence of characters within a string. In simpler terms, if you have a string, 
+a substring is any sequence of characters that you can create by selecting a part of the original string without skipping any characters.
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -566,3 +570,25 @@ int main() {
 
     return 0;
 }
+---------------------------------------------------------------
+---------------------------------------------------------------
+  /* 
+  Given TWON STRING S AND S1 AND WE NEED TO FIND IF S1 IS SUBSEQUENCE OF S.
+A subsequence is a sequence that can be derived from another sequence by deleting some or
+no elements without changing the order of the remaining elements.
+*/
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s, s1;
+    cin >> s >> s1;
+    long long pos=0;
+    for(int i=0;i<s.length();i++)
+    {
+        if(s[i]==s1[pos]) pos++;
+    }
+    if(pos==s1.size()) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+}
+
