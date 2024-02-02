@@ -529,5 +529,40 @@ int main()
     cout<<"Main Answer "<<ans<<endl;
 }
   
-    
 
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+/* 
+  SubString of a string.
+  Given two string s,s1. Need to find out if the s1 is substring of s
+*/
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s, s1;
+    cin >> s >> s1;
+
+    bool found = false;
+    for (int i = 0; i <= s.length() - s1.length(); i++) {
+        bool match = true;
+        for (int j = 0; j < s1.length(); j++) {
+            if (s[i + j] != s1[j]) {
+                match = false;
+                break;
+            }
+        }
+        if (match) {
+            found = true;
+            break;
+        }
+    }
+
+    if (found) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
