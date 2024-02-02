@@ -573,7 +573,7 @@ int main() {
 ---------------------------------------------------------------
 ---------------------------------------------------------------
   /* 
-  Given TWON STRING S AND S1 AND WE NEED TO FIND IF S1 IS SUBSEQUENCE OF S.
+   GIVEN TWO STRING S AND S1 AND WE NEED TO FIND IF S1 IS SUBSEQUENCE OF S.
 A subsequence is a sequence that can be derived from another sequence by deleting some or
 no elements without changing the order of the remaining elements.
 */
