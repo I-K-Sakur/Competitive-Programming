@@ -592,3 +592,37 @@ int main() {
     else cout<<"NO"<<endl;
 }
 
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+  /* ALL POSSIBLE PERMUTATION OF A STRING */
+  #include <bits/stdc++.h>
+using namespace std;
+/*ALL DISTINCT VALUE USING STRING VALUE PERMUTATION*/
+string s;
+void f(int i)
+{
+    if(i==s.size()-1)
+    {
+        cout<<s<<endl;
+        return ;
+    }
+    else
+    {
+        for(int j=i;j<s.length();j++)
+        {
+            //Swap two characters of a string and create a new permutation of the string
+            swap(s[i],s[j]);
+            //incremet the value of i by 1 recursively
+            f(i+1);
+            //it takes back the real position of the string character
+            swap(s[i],s[j]);
+        }
+    }
+
+}
+
+int main() {
+   
+    cin>>s;
+    f(0);
+}
