@@ -665,3 +665,35 @@ int main()
 
    
 }
+---------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+  /* INPUT,OUTPUT USING RECURSION */
+
+  #include <bits/stdc++.h>
+using namespace std;
+ vector<int>vex;
+ int a;
+void input(int n)
+{
+  if(n<0) return;
+  input(n-1);
+  cin>>a;
+  vex.push_back(a);
+//   cout<<vex[n];
+}
+
+void output(int n)
+{
+    if(n<0)return;
+    output(n-1);
+    cout<<vex[n];
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    input(n);
+    output(n);
+   
+}
