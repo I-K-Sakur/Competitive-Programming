@@ -697,3 +697,36 @@ int main()
     output(n);
    
 }
+---------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+  /* SUM OF VECTOR USING RECURSION */
+  #include <bits/stdc++.h>
+using namespace std;
+ vector<int>vex;
+ int a;
+void input(int n)
+{
+  if(n<0) return;
+  input(n-1);
+  cin>>a;
+
+  vex.push_back(a);
+ 
+}
+
+int sum(int n)
+{
+  if(n<0) return 0;
+  return sum(n-1)+vex[n];
+}
+
+
+int main()
+{
+    int n;
+    cin>>n;
+    input(n);
+   // output(n);
+    cout<<sum(n-1)<<endl;
+   
+}
