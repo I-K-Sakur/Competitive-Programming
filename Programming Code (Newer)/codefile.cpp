@@ -730,3 +730,30 @@ int main()
     cout<<sum(n-1)<<endl;
    
 }
+----------------------------------------------------------------
+----------------------------------------------------------------
+  /*Palindrome Using Recursion*/
+#include <bits/stdc++.h>
+
+using namespace std;
+string s;
+bool palin(int i,int n)
+{
+   if(i>=n) return true;
+   if(s[i]!=s[n]) return false;
+   if(s[i]==s[n]) return palin(i+1,n-1);
+}
+
+int main()
+{
+  cin>>s;
+  int i=0;
+  int n=s.size();
+  if(palin(i,n-1))
+  {
+    cout<<"It's Palindrome"<<endl;
+  }
+  else {
+    cout<<"NOT a Palindrome"<<endl;
+  }
+}
