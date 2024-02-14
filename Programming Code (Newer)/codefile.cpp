@@ -757,3 +757,22 @@ int main()
     cout<<"NOT a Palindrome"<<endl;
   }
 }
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+/* Reverse A string */
+  #include <bits/stdc++.h>
+
+using namespace std;
+string s;
+
+string rev(int n)
+{
+   if(n<0) return " ";
+  return s[n]+rev(n-1);
+}
+
+int main()
+{
+  cin>>s;
+  cout<<rev(s.size()-1);
+}
