@@ -776,3 +776,40 @@ int main()
   cin>>s;
   cout<<rev(s.size()-1);
 }
+---------------------------------------------------------------------------
+--------------------------------------------------------------------------
+/* Power or Pow function with less Complexity */
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// Recursive function to calculate the power of a number
+// Parameters:
+//   n: Base of the power
+//   k: Exponent of the power
+// Returns:
+//   The result of n raised to the power of k
+int pow(int n, int k) {
+    // Base case: if exponent is 0, return 1
+    if (k == 0) 
+        return 1;
+    
+    // Recursive calculation of half power
+    long long half = pow(n, k / 2);
+    
+    // If the exponent is odd, multiply half power by itself and the base
+    if (k % 2 == 1) 
+        return half * half * n;
+    
+    // If the exponent is even, multiply half power by itself
+    return half * half;
+}
+
+int main() {
+    int n, k;
+    // Input base and exponent
+    cin >> n >> k;
+    // Output the result of n raised to the power of k
+    cout << pow(n, k) << endl;
+    return 0;
+}
