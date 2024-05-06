@@ -813,3 +813,22 @@ int main() {
     cout << pow(n, k) << endl;
     return 0;
 }
+
+
+
+//SUM OF ALL DIGIT OF A NUMBER
+#include <bits/stdc++.h>
+using namespace std;
+
+int digitsum(int digit)
+{
+    if(digit==0) return 0;
+    return digit%10+digitsum(digit/10);
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+   cout<<digitsum(n);
+}
