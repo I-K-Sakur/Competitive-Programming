@@ -832,3 +832,20 @@ int main()
     cin>>n;
    cout<<digitsum(n);
 }
+
+//TOTAL NUMBER OF DIGIT IN A NUMBER
+#include <bits/stdc++.h>
+using namespace std;
+
+int digitcount(int digit)
+{
+    if(digit==0) return 0;
+    return 1+digitcount(digit/10);
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+   cout<<digitcount(n);
+}
