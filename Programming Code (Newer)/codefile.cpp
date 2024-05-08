@@ -906,3 +906,24 @@ int main() {
     return 0;
 }
 
+//NCR COMBINATION
+#include <bits/stdc++.h>
+using namespace std;
+int ncr(int n,int r)
+{
+  
+  //C(n, r)=n ! /[r !(n-r) !]
+  if(r==1) return n;
+  if(n==r || r==0) return 1;
+  if(n<r) return 0;
+  return ncr(n-1,r-1)+ncr(n-1,r);
+
+}
+
+int main() {
+  int n,r;
+  cin>>n>>r;
+  cout<<ncr(n,r)<<endl;
+   
+}
+
