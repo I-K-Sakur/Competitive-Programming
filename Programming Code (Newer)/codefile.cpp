@@ -868,3 +868,41 @@ int main()
   cout<<fibonacci(n)<<endl;
 }
 
+
+//ALL SUBSET OF OF ARRAY/VECTOR
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> a(100);
+
+void printSubset(vector<int> &b, int pos, int last) {
+    if (pos == last) {
+        for (int i = 0; i < b.size(); i++) {
+            cout << b[i] << " ";
+        }
+        cout << endl;
+        return; // The base case: end the recursion
+    }
+
+    // Include the current element in the subset
+    b.push_back(a[pos]);
+    printSubset(b, pos + 1, last); // Recurse with the current element
+
+    // Exclude the current element from the subset
+    b.pop_back(); // Remove the current element
+    printSubset(b, pos + 1, last); // Recurse without the current element
+}
+
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    
+    vector<int> b;
+    printSubset(b, 0, n); // Start generating subsets from the beginning
+    
+    return 0;
+}
+
