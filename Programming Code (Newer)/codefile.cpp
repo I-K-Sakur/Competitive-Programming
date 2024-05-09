@@ -932,42 +932,69 @@ int main() {
 #include <bits/stdc++.h>
 using namespace std;
 
-// Function to find the upper bound (first index where x < b[mid])
-int upperBound(const vector<int>& b, int x) {
+// Custom upper bound function to find the first position where x could be inserted in a sorted array
+int upperBound(const vector<int>& arr, int x) {
     int l = 0;
-    int r = b.size()-1; // The upper bound is typically `size()`
-    while (l < r) { // Note the condition is `l < r`
-        int mid = l + (r - l) / 2;
-        if (x < b[mid]) {
-            r = mid-1; // Continue searching in the left half
+    int r = arr.size(); // Start `r` at size, the end of the array
+
+    while (l < r) { // Binary search loop
+        int mid = l + (r - l) / 2; // Midpoint to avoid overflow
+        if (arr[mid] <= x) { // If mid is less than or equal to `x`, the upper bound is to the right
+            l = mid + 1;
         } else {
-            l = mid + 1; // Continue searching in the right half
+            r = mid; // Otherwise, it's to the left
         }
     }
-    return l; // The index of the upper bound
+
+    return l; // `l` is the upper bound index
 }
 
 int main() {
+    // Example sorted array
+    vector<int> arr = {1, 2, 2, 3, 4, 4, 5, 6};
+
     int x;
+    cout << "Enter a value to find its upper bound: ";
     cin >> x;
-    vector<int> b(8);
 
-    for (int i = 0; i < 8; i++) {
-        cin >> b[i];
+    int ub = upperBound(arr, x); // Find the upper bound
+    cout << "The upper bound index for " << x << " is: " << ub << endl;
+
+    return 0;
+}
+
+//Lower_bound
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Custom lower bound function to find the first position where `x` could be inserted without violating order
+int lowerBound(const vector<int>& arr, int x) {
+    int l = 0;  // Start of the array
+    int r = arr.size();  // End of the array (one past the last index)
+
+    while (l < r) {  // Loop condition for binary search
+        int mid = l + (r - l) / 2;  // Calculate the midpoint
+        if (arr[mid] < x) {  // If the middle element is less than `x`, search to the right
+            l = mid + 1;
+        } else {  // Otherwise, the lower bound is to the left or at `mid`
+            r = mid;
+        }
     }
 
-    // Ensure the vector is sorted for binary search
-    sort(b.begin(), b.end());
+    return l;  // The lower bound index
+}
 
-    // Find the upper bound
-    int ub = upperBound(b, x);
-    
-    cout << "Upper bound index: " << ub << endl; // Output the upper bound index
-    cout << "Elements in b up to the upper bound: ";
-    for (int i = 0; i < ub; i++) {
-        cout << b[i] << " ";
-    }
-    cout << endl;
+int main() {
+    // Example sorted array
+    vector<int> arr = {1, 2, 2, 3, 4, 4, 5, 6};
+
+    int x;
+    cout << "Enter a value to find its lower bound: ";
+    cin >> x;
+
+    int lb = lowerBound(arr, x);  // Find the lower bound
+    cout << "The lower bound index for " << x << " is: " << lb << endl;
 
     return 0;
 }
