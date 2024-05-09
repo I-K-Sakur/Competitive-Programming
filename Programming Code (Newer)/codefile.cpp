@@ -927,3 +927,46 @@ int main() {
    
 }
 
+//LOWER BOUND CODE
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to find the upper bound (first index where x < b[mid])
+int upperBound(const vector<int>& b, int x) {
+    int l = 0;
+    int r = b.size()-1; // The upper bound is typically `size()`
+    while (l < r) { // Note the condition is `l < r`
+        int mid = l + (r - l) / 2;
+        if (x < b[mid]) {
+            r = mid-1; // Continue searching in the left half
+        } else {
+            l = mid + 1; // Continue searching in the right half
+        }
+    }
+    return l; // The index of the upper bound
+}
+
+int main() {
+    int x;
+    cin >> x;
+    vector<int> b(8);
+
+    for (int i = 0; i < 8; i++) {
+        cin >> b[i];
+    }
+
+    // Ensure the vector is sorted for binary search
+    sort(b.begin(), b.end());
+
+    // Find the upper bound
+    int ub = upperBound(b, x);
+    
+    cout << "Upper bound index: " << ub << endl; // Output the upper bound index
+    cout << "Elements in b up to the upper bound: ";
+    for (int i = 0; i < ub; i++) {
+        cout << b[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
