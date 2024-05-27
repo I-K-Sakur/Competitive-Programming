@@ -868,7 +868,7 @@ int main()
   cout<<fibonacci(n)<<endl;
 }
 
-
+-----------------------------------------------------------------------------------------
 //ALL SUBSET OF OF ARRAY/VECTOR
 
 #include <bits/stdc++.h>
@@ -926,7 +926,7 @@ int main() {
   cout<<ncr(n,r)<<endl;
    
 }
-
+------------------------------------------------------------------------------------------------------------
 //UPPER_BOUND CODE
 
 #include <bits/stdc++.h>
@@ -962,7 +962,7 @@ int main() {
 
     return 0;
 }
-
+-----------------------------------------------------------------------------------------------------------
 //Lower_bound
 
 #include <bits/stdc++.h>
@@ -997,4 +997,38 @@ int main() {
     cout << "The lower bound index for " << x << " is: " << lb << endl;
 
     return 0;
+}
+
+-----------------------------------------------------------------------------------------
+//Depth First Search
+#include<bits/stdc++.h>
+using namespace std;
+ vector<vector<int>>edge;
+int visited[10000]={0};
+void dfs(int root)
+{
+   visited[root]=1;
+   cout<<root<<" ";
+   for(int i=0;i<edge[root].size();i++)
+   {
+    int x=edge[root][i];
+     if(visited[x]==0)
+     {
+       dfs(x);
+     }
+   }
+}
+int main()
+{
+  int n,m,u,v;
+ 
+  cin>>n>>m;
+  edge.resize(n+1);
+  for(int i=1;i<=m;i++)
+  {
+    cin>>u>>v;
+   edge[u].push_back(v);
+   edge[v].push_back(u);
+  }
+   dfs(1);
 }
