@@ -1032,3 +1032,48 @@ int main()
   }
    dfs(1);
 }
+--------------------------------------------------------------------------------------------------
+  //BREADTH FIRSH SEARCH(BFS)
+  //Depth First Search
+#include<bits/stdc++.h>
+using namespace std;
+ vector<vector<int>>edge;
+int visited[10000]={0};
+void bfs(int x)
+{
+   queue<int>q;
+   q.push(x);
+   visited[x]=1;
+  while (!q.empty())
+  {
+    int x=q.front();
+    q.pop();
+    cout<<x<<" ";
+  
+  
+   for(int i=0;i<edge[x].size();i++)
+   {
+    int next=edge[x][i];
+     if(!visited[next])
+     {
+       visited[next]=1;
+       q.push(next);
+     }
+   }
+  }
+   
+}
+int main()
+{
+  int n,m,u,v;
+ 
+  cin>>n>>m;
+  edge.resize(n+1);
+  for(int i=1;i<=m;i++)
+  {
+    cin>>u>>v;
+   edge[u].push_back(v);
+   edge[v].push_back(u);
+  }
+   bfs(1);
+}
