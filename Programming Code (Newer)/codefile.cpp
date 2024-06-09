@@ -1077,3 +1077,64 @@ int main()
   }
    bfs(1);
 }
+----------------------------------------------------------------------
+  //Graph cycle or not
+  #include<bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> adj;
+vector<bool> visited;
+
+bool isCyclicUtil(int v, int parent) {
+    visited[v] = true;
+
+    for (int i = 0; i < adj[v].size(); i++) {
+        int next = adj[v][i];
+
+        if (!visited[next]) {
+            if (isCyclicUtil(next, v)) {
+                return true;
+            }
+        } else if (next != parent) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool isCyclic(int n) {
+    visited.assign(n, false);
+
+    for (int u = 0; u < n; u++) {
+        if (!visited[u]) {
+            if (isCyclicUtil(u, -1)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    adj.resize(n);
+
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    if (isCyclic(n)) {
+        cout << "Graph contains a cycle" << endl;
+    } else {
+        cout << "Graph does not contain a cycle" << endl;
+    }
+
+    return 0;
+}
